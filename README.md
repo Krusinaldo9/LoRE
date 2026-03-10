@@ -1,10 +1,10 @@
-# LoRE: Robust and Adaptive Graph Embeddings via Local Self-Reconstruction Mechanisms
+# LoRE: Adaptive and Robust Graph Embeddings via Local Self-Reconstruction
 
-This repository contains the official supplementary code for our ICLR 2026 submission:
+This repository contains the official supplementary code for our ECML/PKDD 2026 submission:
 
-**LoRE: Robust and Adaptive Graph Embeddings via Local Self-Reconstruction Mechanisms**
+**LoRE: Adaptive and Robust Graph Embeddings via Local Self-Reconstruction**
 
-LoRE is a hybrid approach to graph embeddings (GEs). It extends translational KGE models with local GNN-based reconstructions to enable embedding robustness and updates without costly full retraining.
+LoRE is a graph embedding framework that introduces local self-reconstruction as a new self-supervised training paradigm for graph neural networks. Instead of supervising embeddings through edge prediction, LoRE learns node representations by reconstructing base embeddings from their local neighborhood context. This node-centric formulation enforces structural consistency among equivalent nodes, avoids reliance on negative edge sampling, and enables efficient adaptation when graphs evolve.
 
 ---
 
@@ -31,7 +31,7 @@ data/<dataset>/graph.json.zip
 
 The archive contains:
 
-- **graph.json**: nodes, relations (a single relation for undirected graphs), and edges as directed triples `(u, v, o)`. For undirected graphs, both directions are included.
+- **graph.json**: nodes, relations (a single relation for undirected graphs), and edges as directed triples `(v, u, m)`. For undirected graphs, both directions are included.
 - **reconstruct.txt**: all node URIs belonging to the train, validation, and test splits.
 - **train.tsv**, **val.tsv**, **test.tsv**: partitioned subsets for downstream evaluation.
 
@@ -81,7 +81,7 @@ Body (example):
 ```json
 {
   "epochs": 10,
-  "base_nodes": ["uri1", "uri2", "uri3]"],
+  "base_nodes": ["uri1", "uri2", "uri3"],
   "num_workers": 0
 }
 ```
