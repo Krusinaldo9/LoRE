@@ -1,4 +1,4 @@
-# LoRE: Adaptive and Robust Graph Embeddings via Local Self-Reconstruction
+# Adaptive and Robust Graph Embeddings via Local Self-Reconstruction
 
 This repository contains the official supplementary code for the locally self-reconstructive graph embedding model
 
